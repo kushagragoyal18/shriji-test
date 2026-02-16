@@ -27,6 +27,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    /* Remove gray tap highlight on iOS */
 }
 
 body {
@@ -566,6 +568,40 @@ ul {
     .detail-row span {
         text-align: left;
     }
+
+    /* iOS/Mobile Optimizations */
+    .hero-section {
+        background-attachment: scroll;
+        /* Fixes jittery scroll on iOS */
+    }
+
+    /* Prevent auto-zoom on iOS inputs */
+    .contact-form-white input,
+    .contact-form-white textarea {
+        font-size: 16px !important;
+        /* Must be 16px to prevent zoom */
+    }
+}
+
+/* Global iOS Input Reset */
+input,
+textarea,
+button {
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    /* Reset default iOS border radius */
+}
+
+/* Re-apply border radius selectively to avoid square buttons where not intended */
+.btn {
+    border-radius: 4px;
+}
+
+.contact-form-card,
+.about-image-wrapper {
+    border-radius: 4px;
+    /* Ensure these stay rounded if global reset affected */
 }
 
 /* Animations */

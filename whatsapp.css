@@ -2,6 +2,7 @@
 .whatsapp-btn {
     position: fixed;
     bottom: 30px;
+    bottom: calc(30px + env(safe-area-inset-bottom));
     right: 30px;
     width: 60px;
     height: 60px;
