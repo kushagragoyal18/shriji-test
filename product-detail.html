@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details - WoodCraft Timbers</title>
+    <title>Product Details - Shri Ji Timbers</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -217,7 +217,7 @@
 
     <footer class="contact-section">
         <div class="footer-bottom">
-            <p>&copy; 2026 WoodCraft Timbers. All Rights Reserved.</p>
+            <p>&copy; 2026 Shri Ji Timbers. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -237,21 +237,21 @@
         const productId = params.get('id');
 
         const products = {
-            'teak-sizes': { title: 'Teak Wood Cut Sizes', cat: 'Sizes', desc: 'High quality teak wood cut to specific sizes for furniture and construction needs.' },
-            'hard-sizes': { title: 'Hard Wood Cut Sizes', cat: 'Sizes', desc: 'Durable hard wood available in various cut sizes.' },
-            'rough-squares': { title: 'Rough Squares', cat: 'Raw', desc: 'Raw rough squares suitable for milling and further processing.' },
-            'door-frames': { title: 'Door Frames', cat: 'Frames', desc: 'Sturdy door frames pre-cut and ready for installation.' },
-            'door-shutters': { title: 'Door Shutters', cat: 'Doors', desc: 'Elegant and strong door shutters available in multiple designs.' },
-            'window-frames': { title: 'Window Frames & Shutters', cat: 'Windows', desc: 'Complete window solutions including frames and shutters.' },
-            'teak-logs': { title: 'Teak Wood Logs', cat: 'Logs', desc: 'Premium teak wood logs for large scale manufacturing.' },
-            'hard-logs': { title: 'Hard Wood Logs', cat: 'Logs', desc: 'Solid hard wood logs sourced from the best forests.' }
+            'teak-sizes': { title: 'Wooden Chaukhats', cat: 'Wood', desc: 'Strong and well-finished wooden door frames made for long-lasting support and durability' },
+            'hard-sizes': { title: 'Wooden Windows', cat: 'Wood', desc: 'Classic wooden windows crafted for natural beauty, ventilation, and strength.' },
+            'rough-squares': { title: 'Ventilators', cat: 'Wood & Iron', desc: 'Compact and sturdy ventilators designed to ensure proper airflow in every space' },
+            'door-frames': { title: 'Iron Chaukhats', cat: 'Iron', desc: 'Heavy-duty iron door frames built for extra strength and long-term reliability' },
+            'door-shutters': { title: 'Iron Windows', cat: 'Iron', desc: 'Secure and durable iron windows suitable for homes, shops, and commercial spaces.' },
+            'window-frames': { title: 'Iron Gates', cat: 'Iron', desc: 'Strong and stylish iron gates that provide safety with a solid presence.' },
+            'teak-logs': { title: 'Backalite Doors', cat: 'Backalite', desc: 'Moisture-resistant and low-maintenance Bakelite doors ideal for bathrooms and utility areas.' },
+            'hard-logs': { title: 'Steel Doors', cat: 'Steel', desc: 'Tough steel doors designed for enhanced security and long-lasting performance.' }
         };
 
         if (productId && products[productId]) {
             document.getElementById('productTitle').innerText = products[productId].title;
             document.getElementById('productCat').innerText = products[productId].cat;
             document.getElementById('productDesc').innerText = products[productId].desc;
-            document.title = products[productId].title + ' - WoodCraft Timbers';
+            document.title = products[productId].title + ' - Shri Ji Timbers';
         }
 
         function changeImage(el) {
