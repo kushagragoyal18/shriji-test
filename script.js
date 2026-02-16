@@ -70,13 +70,69 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3000);
     }
 
-    // Contact Form Submission
-    /* Debug Mode: Direct Submission to Activate Email
+    // Contact Form Submission (AJAX)
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function (e) {
-            // e.preventDefault(); // Temporarily disabled to allow direct submission
+            e.preventDefault(); // Prevent default redirection
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            if (!name || !email || !message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            // Show loading state
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+
+            // Prepare Data
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('subject', subject);
+            formData.append('message', message);
+            formData.append('_subject', "New Quote Request from Website");
+            formData.append('_captcha', "false");
+            formData.append('_template', "table");
+
+            // Send AJAX Request
+            fetch("https://formsubmit.co/ajax/shrijitimbers@gmail.com", {
+                method: "POST",
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        return response.json().then(data => {
+                            throw new Error(data.message || 'Server error');
+                        });
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    showToast('Quote Sent Successfully!', 'success');
+                    contactForm.reset();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // Fallback: If AJAX fails, try direct submission or alert
+                    alert('Something went wrong. Please try again.');
+                    showToast('Failed to send. Please check your connection.', 'error');
+                })
+                .finally(() => {
+                    submitBtn.textContent = originalBtnText;
+                    submitBtn.disabled = false;
+                });
         });
     }
-    */
 });
