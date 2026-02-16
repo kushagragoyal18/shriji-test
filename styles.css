@@ -659,3 +659,75 @@ ul {
         border-bottom: none;
     }
 }
+
+/* Toast Notification */
+.toast-notification {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    /* Half of min-width */
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    bottom: 30px;
+    font-size: 1rem;
+    font-family: 'Open Sans', sans-serif;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s ease-in-out, bottom 0.5s ease-in-out;
+}
+
+.toast-notification.show {
+    visibility: visible;
+    opacity: 1;
+    bottom: 50px;
+    /* Move up slightly */
+}
+
+.toast-notification.success {
+    background-color: #4CAF50;
+    /* Green success color */
+}
+
+/* About Name Card Overlay */
+.about-name-card {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    background-color: #f7f5f2;
+    /* Light creamy off-white */
+    padding: 1.5rem 2.5rem;
+    color: var(--primary-dark);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    z-index: 10;
+}
+
+/* About Layout Logic */
+.about-mobile-header {
+    display: none;
+    margin-bottom: var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+    .about-mobile-header {
+        display: block;
+    }
+
+    .about-content .section-title,
+    .about-content .divider {
+        display: none;
+    }
+
+    .about-image-wrapper {
+        margin-bottom: var(--spacing-sm);
+    }
+}

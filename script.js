@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Handle observed elements becoming visible
-    // CSS class to handle actual visibility
     const style = document.createElement('style');
     style.innerHTML = `
         .visible {
@@ -47,4 +46,37 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     document.head.appendChild(style);
 
+    // Toast Notification Logic
+    function showToast(message, type = 'default') {
+        // Create toast element if it doesn't exist
+        let toast = document.getElementById('toast-notification');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'toast-notification';
+            toast.className = 'toast-notification';
+            document.body.appendChild(toast);
+        }
+
+        // Set message and type
+        toast.textContent = message;
+        toast.className = 'toast-notification show';
+        if (type === 'success') {
+            toast.classList.add('success');
+        }
+
+        // Hide after 3 seconds
+        setTimeout(() => {
+            toast.className = toast.className.replace('show', '');
+        }, 3000);
+    }
+
+    // Contact Form Submission
+    /* Debug Mode: Direct Submission to Activate Email
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            // e.preventDefault(); // Temporarily disabled to allow direct submission
+        });
+    }
+    */
 });
