@@ -342,6 +342,18 @@ ul {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
+/* Product Grid Styles */
+.product-img-wrapper {
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.product-item:hover .product-img-wrapper img {
+    transform: scale(1.05);
+    /* Zoom effect on hover */
+    transition: transform 0.5s ease;
+}
+
 .product-img-placeholder {
     width: 100%;
     height: 300px;
