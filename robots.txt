@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.shrijitimbers.shop/sitemap.xml
